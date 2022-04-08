@@ -8,13 +8,15 @@ class Solution {
      * @return Integer[]
      */
     function twoSum($nums, $target) {
-        $count = 1;
-        $result = [];
-        foreach($nums as $key => $value) {
-            $sum = $value + $nums[$count + $key];
-            if($sum == $target) {
-                $result = [$key, $count + $key];
+        $length = count($nums) - 1;
+        for($i = 0; $i <= $length; $i++) {
+            for($j = $i + 1; $j <= $length; $j++) {
+                $sum = $nums[$i] + $nums[$j];
+                if ($sum === $target) {
+                    $result = [$i, $j];
+                } 
             }
+            
         }
         
         return $result;
